@@ -8,6 +8,7 @@ if __name__ == '__main__':
     parser.add_argument('--gpu', '-g', default='-1', type=int, help='-1 means cpu')
     args = parser.parse_args()
 
+    # 加载配置文件中模型相关参数
     config = Config(file_path=["./config.ini"], model=args.model, gpu=args.gpu)
     if args.model == 'Metapath2vec':
         trainerflow = Metapath2VecTrainer(args=config)

@@ -38,7 +38,7 @@ class Metapath2VecTrainer():
     def train(self):
         emb = self.load_embeddings()
 
-        start_idx, end_idx = self.get_ntype_range(self.dataset.category)
+        start_idx, end_idx = self.get_ntype_range(self.dataset.category)  # 获取该类型的节点在所有节点中的偏移量
         train_idx, test_idx = self.dataset.get_idx()
         node_classification_with_LR(emb[start_idx:end_idx], self.dataset.get_labels(), train_idx, test_idx)
 
